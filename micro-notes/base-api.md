@@ -1,6 +1,7 @@
 
 
 ### baseApi
+## window.__POWERED_BY_QIANKUN__  程序运行在乾坤的主项目中
 
 ### how to get start 
 
