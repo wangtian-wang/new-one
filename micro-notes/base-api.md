@@ -1,5 +1,6 @@
 
 
+
 ### baseApi
 
 ### how to get start 
@@ -253,6 +254,49 @@ start({ singular: false });
 
 qiankun 2.0 版本将提供一种更智能的方式使其自动化。
 ```
+## 
+```
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+### 
+## 
+
+### 
+
+
+
+```
+
+
+```
+
+### 
+
+### 
+
+### 
+## 
+
+```
+
+
+```
+## 
+```
+
+```
 ## api 
 ```
 API 说明
@@ -403,3 +447,4 @@ import { removeGlobalUncaughtErrorHandler } from 'qiankun';
 
 removeGlobalUncaughtErrorHandler(handler);
 ```
+>>>>>>> cafea034054627a5e63c50419182b4f38dd2b8f1
