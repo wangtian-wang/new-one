@@ -1,0 +1,7 @@
+
+# directory ignore all the node_module direcorty in each direcotry in new-one
+ssr/node_modules
+ssr-directory/node_modules
+.DS_Store
+debug.log
+.vscode
