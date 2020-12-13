@@ -5,14 +5,15 @@
 ###### 项目中使用vutur的时候，使用prettier的方式格式化代码
 
 ```js
+在package.json文件中设置
  {
    "vetur.format.defaultFormatterOptions": {
       "prettier": {
         "semi": false,
         "singleQuote": true,
-         "trailingComma": "none", // 对象或数组最后一个元素不添加逗号
+         "trailingComma": "es5", // 对象或数组最后一个元素不添加逗号
             /* 在对象属性添加空格 */
-  			"bracketSpacing": true,
+  			 "bracketSpacing": true,
       },
       "wrap_attributes": "force-aligned"
     },
@@ -28,12 +29,26 @@
 },
   
   
-  在vscode的setting.json中添加以下代码。
-"editor.codeActionsOnSave": {
-    "source.fixAll": true
-},
+在eslint 设置prettier格式化代码的方式
+1: npm i eslint-config-prettier eslint-plugin-prettier
+2 .eslintrc.json
+{
+  "extends": ["plugin: prettier/recommened"]
+}
+
+
+
+ 在vscode的setting.json中添加以下代码。
 /* 关闭编辑器自带保存格式化功能，此功能会用Vetur进行格式化。*/
 "editor.formatOnSave": false，
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+},
+/*  设置不同语言的保存方式   */
+"[javascript]": {
+  "editor.formatOnSave": true
+}
+
 "editor.wordWrap": "wordWrapColumn", // 超长代码一般出现在html中, 我不喜欢html属性换行, 但是又想看到全部, 那就只能设置编辑器视觉上的换行了.
 "editor.wordWrapColumn": 150, // 编辑器将在每行的单词数目达到这个数字以后换行
   
