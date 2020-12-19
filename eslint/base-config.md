@@ -2,26 +2,170 @@
 
 #### base-config-prettier
 
+```
+
+shift+option+f （ 参考windows vscode 格式化代码的方法    ） 来启动自动格式化的工具，告诉编辑器用哪个方式格式化代码；
+
+
+```
+
+
+
 ###### 项目中使用vutur的时候，使用prettier的方式格式化代码
 
 ```js
-在package.json文件中设置
- {
-   "vetur.format.defaultFormatterOptions": {
-      "prettier": {
-        "semi": false,
-        "singleQuote": true,
-         "trailingComma": "es5", // 对象或数组最后一个元素不添加逗号
-            /* 在对象属性添加空格 */
-  			 "bracketSpacing": true,
+在项目的eslint配置文件里面添加prettier的选项配置
+
+module.exports = {
+  root: true,
+  env: {
+    node: true,
+  },
+  // 让eslint配置prettier规则
+  /*
+  	一个配置文件可以从基础配置中(已经生效的编辑器的配置文件)继承已启用的规则。如上，如果值为字符串数组则每个配置继承它前面的配置。值为“eslint:recommended” 的extends 属性启用了eslint默认的规则，请参考：https://cn.eslint.org/docs/rules/
+  
+  */
+  extends: ['plugin:vue/essential', 'prettier:recommended', '@vue/prettier'],
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    prettier: [
+      'warning',
+      {
+        useTab: true,
+        tabWidth: 2,
+        semi: false,
+        singleQuote: true,
+        trailingComma: 'none', // 对象或数组最后一个元素不添加逗号
+        /* 在对象属性添加空格 */
+        bracketSpacing: true,
       },
-      "wrap_attributes": "force-aligned"
+    ],
+  },
+};
+
+./node_modules/.bin/eslint index.js --fix
+代码修复
+项目根目录运行：
+
+
+
+
+在package.json文件中设置
+vscode 代码格式化的设置
+{
+    "todohighlight.isCaseSensitive": true,
+    "todohighlight.keywords": [
+        "DEBUG:",
+        "REVIEW:",
+        {
+            "text": "note",
+            "color": "#f40",
+            "backgroundColor": "white",
+            "overviewRulerColor": "grey",
+        },
+        {
+            "text": "HACK:",
+            "color": "#000",
+            "overviewRulerColor": "grey",
+        },
+        {
+            "text": "TODO",
+            "color": "#eee",
+            "border": "1px solid #EEE",
+            "borderRdius": "10px",
+            "backgroundColor": "orange",
+            "isWholeLine": false,
+        }
+    ],
+    "todohighlight.defaultStyle": {
+        "color": "#fff",
+        "backgroundColor": "#ffab00",
+        "overviewRulerColor": "#ffab00",
+        "cursor": "pointer",
+        "border": "1px solid #eee",
+        "borderRadius": "10px",
+        //other styling properties goes here ... 
     },
+    "todohighlight.include": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.css",
+        "**/*.scss",
+        "**/*.vue"
+    ],
+    "todohighlight.exclude": [
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/.vscode/**",
+        "**/.github/**",
+        "**/_output/**",
+        "**/*.min.*",
+        "**/*.map",
+        "**/.next/**"
+    ],
+    "editor.detectIndentation": false,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        // For ESLint
+        "source.fixAll.eslint": true,
+    },
+    "eslint.format.enable": true,
+    "eslint.validate": [
+        "javascript",
+        "vue",
+        "html"
+    ],
+    "editor.fontSize": 18,
+    "vetur.format.defaultFormatter.html": "prettyhtml",
     "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
     "vetur.format.defaultFormatter.js": "vscode-typescript",
-    "vetur.format.defaultFormatter.html": "js-beautify-html" 
+    "vetur.format.defaultFormatterOptions": {
+        "prettier": {
+            "printWidth": 100,
+            "tabWidth": 2,
+            "singleQuote": true,
+            "wrapAttributes": false,
+            "sortAttributes": false,
+            "semi": true,
+            "trailingComma": "none", // 对象或数组最后一个元素不添加逗号
+            "bracketSpacing": true, /* 在对象属性添加空格 */
+        },
+        "js-beautify-html": {
+            "wrap_attributes": "force-aligned"
+            // #vue组件中html代码格式化样式
+        }
+    },
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 200,
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "svipas.prettier-plus"
+    },
+    "prettier.eslintIntegration": true,
+    "prettier.semi": true,
+    "prettier.tabWidth": 2,
+    "prettier.arrowParens": "avoid",
+    "prettier.embeddedLanguageFormatting": "auto",
+    "prettier.requirePragma": true,
+    "prettier.endOfLine": "auto",
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "none",
+    "prettier.bracketSpacing": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
 }
-
 在根目录下面新增加.prettierrc.json
 {
 	"singleQuote":true,//使用单引号而不是双引号,true就是对

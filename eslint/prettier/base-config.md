@@ -11,6 +11,7 @@ setting.son中的设置
     embededLanguageFormatting: off // 不格式化自动识别嵌入式代码。
 
 }
+
 ````
 
 ###### 配置文件的优先级
