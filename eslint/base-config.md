@@ -28,15 +28,27 @@ module.exports = {
   	一个配置文件可以从基础配置中(已经生效的编辑器的配置文件)继承已启用的规则。如上，如果值为字符串数组则每个配置继承它前面的配置。值为“eslint:recommended” 的extends 属性启用了eslint默认的规则，请参考：https://cn.eslint.org/docs/rules/
   
   */
-  extends: ['plugin:vue/essential', 'prettier:recommended', '@vue/prettier'],
+   // 使用prettier中的样式规范，且如果使得ESLint会检测prettier的格式问题，同样将格式问题以error的形式抛出
+  // 安装 "@vue/eslint-config-prettier": "^6.0.0", -D
+  //"eslint-config-prettier": "^7.1.0",
+  //  "eslint-plugin-prettier": "^3.3.0",
+  extends: ['plugin:vue/essential', 'plugin:prettier/recommended'],
+  //  也可以配置plugins
+   plugins: [
+    'eslint-plugin-prettier',
+    'redux-saga',
+    'react',
+    'react-hooks',
+    'jsx-a11y',
+  ],
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: 'babel-eslint'
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    prettier: [
-      'warning',
+    'prettier/prettier': [
+      'warn',
       {
         useTab: true,
         tabWidth: 2,
