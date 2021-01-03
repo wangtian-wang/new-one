@@ -5,7 +5,7 @@
   endOfLine: auto //不检查每行结束的格式
 setting.son中的设置
 {
-    tralingComma:'es5' // 数组对象结尾不会出现逗号
+    tralingComma:'none' // 数组对象结尾不会出现逗号
     bracketSpacing: true, //  { foo: bar }
     endOfLine: auto | lf |crlf,
     embededLanguageFormatting: off // 不格式化自动识别嵌入式代码。
