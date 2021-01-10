@@ -1,5 +1,5 @@
 ```javascript
-
+确保当前页面只有一个请求
 const  axios = require('axios');
 axios.intercetors.request.use(config => {
 		let cancle
