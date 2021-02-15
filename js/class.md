@@ -57,7 +57,7 @@
   speak(); // undefined
   
   Animal.eat() // class Animal
-  let eat = Animal.eat;
+  let eat = Animal.eat; // 定义了一个变量eat将类的eat方法赋值给变量eat。
   eat(); // undefined
   ```
 
@@ -71,3 +71,12 @@
 
 类的私有字段仅能在字段声明中预先定义，然后赋值，否则报错
 
+## 抽象类
+* 1： 以abstract 开头的类是抽象类。在抽象类中 以abstract开头的方法是抽象方法
+* 2： 抽象类     不能用抽象类来创建 new 一个对象，专门用来被继承的类，爸爸类。
+* 3： 抽象方法   抽象方法只能定义在抽象类中，子类必须进行重写。
+```
+    abstract class Person {
+        abstract sayHello():void; // 没有返回值
+    }
+```
