@@ -1,0 +1,21 @@
+{
+  "include": ["./src/dist/**/*"], // 入口文件 ** 代表任意文件夹 * 代表任意文件 默认值[ **/*]
+  "exclude": ["./src/test/**/*"],//  默认值[ node_modules, 'bower_components']
+  "files": [
+      "test1.ts"                   //   要打包编译的文件
+  ],
+  "extends": "./config/tsconfig.js" ,// 当前配置文件会自动包含./config/tsconfig.js 下面的所有配置信息。
+  "compilerOptions": {
+      "allowJs": false,
+      "checkJs": false,
+      "removeComments": false, //  不编译console
+      "noEmit": false,         // 内存中编译，不生成物理文件。
+      "noEmitOnError": false,
+      "target": "ES6",
+      "lib": ["ES6","DOM"],  // 代码运行时的宿主环境里面的对象
+      "outDir": "./dist",    // 编译代码后，会将入口文件里面的所有文件编译到一个文件里面，如果想要使用模块化 的方式加载文件，可以设置module的值。
+      "outFile": "./dist/",
+      "module": "ES6"   // CommonJs UMD AMD System ES2020 ESnext None
+  }
+
+}
