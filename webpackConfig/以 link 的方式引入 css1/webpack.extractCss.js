@@ -42,6 +42,7 @@ module.exports = {
       canPrint: true
     })
   ]
+
 }
 /**
  *  css 的兼容性处理 postcss -> postcss-loader -> postcss-preset-env (能让兼容性精确到某一个浏览器的版本, 做法 : 帮助 postcss先去找package.json 中的 browerList 里面 的配置,通过配置加载指定的 css 兼容性的样式)
