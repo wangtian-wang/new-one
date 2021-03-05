@@ -50,3 +50,18 @@ module.exports = {
 /**
  * optimize-css-assets-webpack-plugin 压缩 css 文件 , 移除 css 文件中的注释
  */
+
+
+关于switch语句的使用 ： 
+在函数中可以使用return 代替break；
+关于continue语句的使用
+ continue + label 用于指定继续执行循环结构的起始位置 
+只能用在循环语句中，for in / for / do while while
+  ```
+    for ( var i = 0; i < 10; i++){
+    console.log(i);
+    if( i === 3) continue;
+    console.log(i)
+}
+ 当条件成立的时候 相当于return；跳出循环 不执行当前的代码， 从下一个i开始，继续执行for循环
+  ```
