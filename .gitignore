@@ -5,3 +5,5 @@ ssr-directory/node_modules
 .DS_Store
 debug.log
 .vscode
+koa_router/node_modules
+koa_server/node_modules
